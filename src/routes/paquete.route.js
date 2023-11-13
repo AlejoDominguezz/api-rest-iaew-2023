@@ -5,10 +5,13 @@ const routerPaquetes = Router();
 
 //Obtener todos los paquetes turisticos 
 routerPaquetes.get("/", GetPaquetes );
+
 //Crear un paquete turistico
 routerPaquetes.post("/", PostPaquetes );
+
 //Actualizar un paquete turistico
 routerPaquetes.put("/", PutPaquetes );
+
 //Eliminar un paquete turistico
 routerPaquetes.delete("/", DeletePaquetes );
 
