@@ -2,6 +2,7 @@ import express from 'express';
 import dbConnection from './src/database/config.js';
 import routerPaquetes from './src/routes/paquete.route.js';
 import routerReservas from './src/routes/reserva.route.js';
+import { swaggerDocs } from './src/swagger.js';
 
 class Server {
 
@@ -30,6 +31,7 @@ class Server {
         this.app.listen( this.port , () => {
             console.log(`Servidor corriendo en puerto: ${this.port}` );
             console.log(`Servidor corriendo en: ${process.env.ORIGIN1}` );
+            swaggerDocs(this.app, process.env.PORT)
             
         });
     }

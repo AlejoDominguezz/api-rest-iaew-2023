@@ -1,4 +1,4 @@
-import { Reserva } from "../models/ReservaPaquete";
+import { Reserva } from "../models/ReservaPaquete.js";
 
 export const getReservas = async (req , res) => {
 
@@ -35,7 +35,7 @@ export const postReservas = async(req , res) => {
 
         await reserva.save()
 
-        return res.json({ ok: true });
+        return res.status(201).json({ ok: true });
 
     } catch (err) {
         return res.status(500).json({ error: "Error de servidor" })
