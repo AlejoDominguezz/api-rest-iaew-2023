@@ -1,6 +1,7 @@
 import express from 'express';
 import dbConnection from './src/database/config.js';
 import routerPaquetes from './src/routes/paquete.route.js';
+import routerReservas from './src/routes/reserva.route.js';
 
 class Server {
 
@@ -8,7 +9,8 @@ class Server {
         this.app = express();
         this.port = process.env.PORT || 3000;
         this.paths = { 
-            paquete:       '/api/paquetes-turisticos'
+            paquete:       '/api/paquetes-turisticos',
+            reserva:       '/api/reservas',
         }
 
         this.conectarDB();
@@ -17,7 +19,7 @@ class Server {
     
 
     routes(){ 
-        this.app.use(this.paths.paquete , routerPaquetes);
+        this.app.use(this.paths.paquete , routerPaquetes, routerReservas);
     }
 
     async conectarDB(){
