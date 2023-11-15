@@ -1,20 +1,23 @@
 import { Router } from "express";
-import { DeletePaquetes, GetPaquetes, PostPaquetes, PutPaquetes } from "../controllers/paquetes.controller.js";
-import { crearPaqueteValidator, obtenerPaquetesValidator } from "../middlewares/validationManager_Paquetes.js";
+import { DeletePaquetes, GetPaqueteById, GetPaquetes, PostPaquetes, PutPaquetes } from "../controllers/paquetes.controller.js";
+import { crearPaqueteValidator, modificarPaqueteValidator, obtenerPaqueteByIdValidator } from "../middlewares/validationManager_Paquetes.js";
 
 const routerPaquetes = Router();
 
 //Obtener todos los paquetes turisticos 
-routerPaquetes.get("/", obtenerPaquetesValidator, GetPaquetes );
+routerPaquetes.get("/", GetPaquetes );
+
+//Obtener todos los paquetes turisticos 
+routerPaquetes.get("/:id", obtenerPaqueteByIdValidator, GetPaqueteById );
 
 //Crear un paquete turistico
 routerPaquetes.post("/", crearPaqueteValidator, PostPaquetes );
 
 //Actualizar un paquete turistico
-routerPaquetes.put("/", PutPaquetes );
+routerPaquetes.put("/:id", modificarPaqueteValidator, PutPaquetes );
 
 //Eliminar un paquete turistico
-routerPaquetes.delete("/", DeletePaquetes );
+routerPaquetes.delete("/:id", obtenerPaqueteByIdValidator, DeletePaquetes );
 
 
 

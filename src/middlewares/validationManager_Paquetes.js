@@ -4,18 +4,24 @@ import { validarCampos } from "./validar-campos.js";
 
 export const crearPaqueteValidator = [
     body('titulo')
+        .notEmpty()
+        .withMessage('El campo titulo es requerido')
         .isString()
-        .withMessage('El campo descripción debe ser un string')
+        .withMessage('El campo titulo debe ser un string')
         .isLength({ max: 150 })
         .withMessage('El campo titulo no debe tener más de 150 caracteres'),
 
     body('descripcion')
+        .notEmpty()
+        .withMessage('El campo descripción es requerido')
         .isString()
         .withMessage('El campo descripción debe ser un string')
         .isLength({ max: 1000 })
         .withMessage('El campo descripción no debe tener más de 1000 caracteres'),
 
     body('precio')
+        .notEmpty()
+        .withMessage('El campo precio es requerido')
         .isNumeric()
         .withMessage('El campo precio debe ser un valor numérico'),
 
@@ -23,22 +29,29 @@ export const crearPaqueteValidator = [
 ];
 
 export const modificarPaqueteValidator = [
+    param('id')
+        .isMongoId()
+        .withMessage('El parámetro debe ser un Mongo ID válido'),
+
     body('titulo')
-        .optional()
+        .notEmpty()
+        .withMessage('El campo titulo es requerido')
         .isString()
-        .withMessage('El campo descripción debe ser un string')
+        .withMessage('El campo titulo debe ser un string')
         .isLength({ max: 150 })
         .withMessage('El campo titulo no debe tener más de 150 caracteres'),
 
     body('descripcion')
-        .optional()
+        .notEmpty()
+        .withMessage('El campo descripción es requerido')
         .isString()
         .withMessage('El campo descripción debe ser un string')
         .isLength({ max: 1000 })
         .withMessage('El campo descripción no debe tener más de 1000 caracteres'),
 
     body('precio')
-        .optional()
+        .notEmpty()
+        .withMessage('El campo precio es requerido')
         .isNumeric()
         .withMessage('El campo precio debe ser un valor numérico'),
 
@@ -47,7 +60,7 @@ export const modificarPaqueteValidator = [
 
 
 
-export const obtenerPaquetesValidator = [
+export const obtenerPaqueteByIdValidator = [
     param('id')
         .isMongoId()
         .withMessage('El parámetro debe ser un Mongo ID válido'),

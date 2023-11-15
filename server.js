@@ -10,14 +10,19 @@ class Server {
         this.app = express();
         this.port = process.env.PORT || 3000;
         this.paths = { 
-            paquete:       '/api/paquetes-turisticos',
-            reserva:       '/api/reservas',
+            paquete:       '/api/v1/paquetes',
+            reserva:       '/api/v1/reservas',
         }
 
         this.conectarDB();
+        this.middlewares();
         this.routes();
     }
     
+    middlewares(){
+        //parseo y lectura del body
+        this.app.use(express.json());
+    }
 
     routes(){ 
         this.app.use(this.paths.paquete , routerPaquetes, routerReservas);
