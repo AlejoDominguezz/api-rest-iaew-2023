@@ -1,4 +1,4 @@
-import { Reserva } from "../models/ReservaPaquete";
+import { Reserva } from "../models/ReservaPaquete.js";
 
 export const getReservas = async (req , res) => {
 
