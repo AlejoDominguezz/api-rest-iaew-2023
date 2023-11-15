@@ -1,13 +1,14 @@
 import { Router } from "express";
 import { DeletePaquetes, GetPaquetes, PostPaquetes, PutPaquetes } from "../controllers/paquetes.controller.js";
+import { crearPaqueteValidator, obtenerPaquetesValidator } from "../middlewares/validationManager_Paquetes.js";
 
 const routerPaquetes = Router();
 
 //Obtener todos los paquetes turisticos 
-routerPaquetes.get("/", GetPaquetes );
+routerPaquetes.get("/", obtenerPaquetesValidator, GetPaquetes );
 
 //Crear un paquete turistico
-routerPaquetes.post("/", PostPaquetes );
+routerPaquetes.post("/", crearPaqueteValidator, PostPaquetes );
 
 //Actualizar un paquete turistico
 routerPaquetes.put("/", PutPaquetes );
