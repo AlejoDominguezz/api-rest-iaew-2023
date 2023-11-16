@@ -51,7 +51,7 @@ export const PostPaquetes = async(req , res) => {
 
         await paquete.save()
 
-        return res.status(201).json({paquete})
+        return res.status(201).json({msg: "Paquete creado exitosamente", paquete: paquete})
 
     } catch (error) {
         console.log(error)
@@ -81,11 +81,11 @@ export const PutPaquetes = async(req , res) => {
         paquete.precio = precio ?? paquete.precio;
 
         await paquete.save()
-        return res.status(200).json({paquete})
+        return res.status(200).json({msg: `El paquete con ID ${id} fue modificado exitosamente`, paquete: paquete})
 
     } catch (error) {
         console.log(error)
-        return res.status(500).json({msg: `El paquete con ID ${id} fue modificado exitosamente`, error: "Error de servidor"})
+        return res.status(500).json({error: "Error de servidor"})
     }
 }
 

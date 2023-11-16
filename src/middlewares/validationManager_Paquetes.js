@@ -22,8 +22,8 @@ export const crearPaqueteValidator = [
     body('precio')
         .notEmpty()
         .withMessage('El campo precio es requerido')
-        .isNumeric()
-        .withMessage('El campo precio debe ser un valor numérico'),
+        .isFloat({min: 0})
+        .withMessage('El campo precio debe ser un valor numérico positivo'),
 
     validarCampos
 ];
@@ -52,8 +52,8 @@ export const modificarPaqueteValidator = [
     body('precio')
         .notEmpty()
         .withMessage('El campo precio es requerido')
-        .isNumeric()
-        .withMessage('El campo precio debe ser un valor numérico'),
+        .isFloat({min: 0})
+        .withMessage('El campo precio debe ser un valor numérico positivo'),
 
     validarCampos
 ];
