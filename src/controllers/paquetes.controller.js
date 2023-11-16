@@ -1,4 +1,5 @@
 import { Paquete } from "../models/PaqueteTuristico.js";
+import { validarTitulo } from "../services/validarTitulo.js";
 
 
 export const GetPaquetes = async(req , res) => {
@@ -104,19 +105,4 @@ export const DeletePaquetes = async(req , res) => {
     } catch (error) {
         return res.status(500).json({error: "Error de servidor"})
     }
-}
-
-
-const validarTitulo = async (titulo, id) => {
-    let paquete = null;
-    if(id == null){
-        paquete = await Paquete.findOne({titulo: titulo})
-    } else {
-        paquete = await Paquete.findOne({titulo: titulo, _id: {$ne:id}})
-    }
-
-    if (!paquete){
-        return false;
-    } 
-    return true;
 }
