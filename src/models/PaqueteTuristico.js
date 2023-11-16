@@ -20,3 +20,27 @@ const PaqueteTuristicoSchema = new Schema({
 });
 
 export const Paquete = model('PaqueteTuristico', PaqueteTuristicoSchema);
+
+// DOCUMENTACIÓN SWAGGER ------------------------------------------------------------
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     PaqueteTuristico:
+ *       type: object
+ *       properties:
+ *         titulo:
+ *           type: string
+ *           description: El título del paquete turístico.
+ *         descripcion:
+ *           type: string
+ *           description: La descripción del paquete turístico.
+ *         precio:
+ *           type: number
+ *           description: El precio del paquete turístico.
+ *       required:
+ *         - titulo
+ *         - descripcion
+ *         - precio
+ */
