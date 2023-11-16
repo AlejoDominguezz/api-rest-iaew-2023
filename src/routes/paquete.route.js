@@ -34,7 +34,7 @@ export default routerPaquetes;
 
 /**
  * @swagger
- * /api/v1/paquetes:
+ * /api/v1/paquetes-turisticos:
  *   get:
  *     summary: Obtener todos los paquetes turísticos
  *     tags: [Paquetes Turísticos]
@@ -78,7 +78,7 @@ export default routerPaquetes;
 
 /**
  * @swagger
- * /api/v1/paquetes/{id}:
+ * /api/v1/paquetes-turisticos/{id}:
  *   get:
  *     summary: Obtener un paquete turístico por ID
  *     tags: [Paquetes Turísticos]
@@ -121,6 +121,37 @@ export default routerPaquetes;
  *                 error:
  *                   type: string
  *                   description: No existe un paquete con ID {id}.
+ *       '400':
+ *         description: Error en la solicitud debido a datos incorrectos.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   description: Hubo un error al validar los campos.
+ *                 errors:
+ *                   type: array
+ *                   description: Listado de errores de validación de datos de entrada.
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         type: string
+ *                         description: Tipo de error.
+ *                       value:
+ *                         type: string
+ *                         description: Valor que causó el error.
+ *                       msg:
+ *                         type: string
+ *                         description: Mensaje de error específico.
+ *                       path:
+ *                         type: string
+ *                         description: Ruta del campo que causó el error.
+ *                       location:
+ *                         type: string
+ *                         description: Ubicación del error (por ejemplo, "params").
  *       '500':
  *         description: Error de servidor interno.
  *         content:
@@ -138,7 +169,7 @@ export default routerPaquetes;
 
 /**
  * @swagger
- * /api/v1/paquetes:
+ * /api/v1/paquetes-turisticos:
  *   post:
  *     summary: Crear un paquete turístico
  *     tags: [Paquetes Turísticos]
@@ -192,6 +223,37 @@ export default routerPaquetes;
  *                 error:
  *                   type: string
  *                   description: Ya existe un paquete con un título '{titulo}'. Por favor, ingrese un título diferente.
+ *       '400':
+ *         description: Error en la solicitud debido a datos incorrectos.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   description: Hubo un error al validar los campos.
+ *                 errors:
+ *                   type: array
+ *                   description: Listado de errores de validación de datos de entrada.
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         type: string
+ *                         description: Tipo de error.
+ *                       value:
+ *                         type: string
+ *                         description: Valor que causó el error.
+ *                       msg:
+ *                         type: string
+ *                         description: Mensaje de error específico.
+ *                       path:
+ *                         type: string
+ *                         description: Ruta del campo que causó el error.
+ *                       location:
+ *                         type: string
+ *                         description: Ubicación del error (por ejemplo, "body").
  *       '500':
  *         description: Error de servidor interno.
  *         content:
@@ -210,7 +272,7 @@ export default routerPaquetes;
 
 /**
  * @swagger
- * /api/v1/paquetes/{id}:
+ * /api/v1/paquetes-turisticos/{id}:
  *   put:
  *     summary: Actualizar un paquete turístico por ID
  *     tags: [Paquetes Turísticos]
@@ -272,6 +334,37 @@ export default routerPaquetes;
  *                 error:
  *                   type: string
  *                   description: No existe un paquete con ID {id}.
+ *       '400':
+ *         description: Error en la solicitud debido a datos incorrectos.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   description: Hubo un error al validar los campos.
+ *                 errors:
+ *                   type: array
+ *                   description: Listado de errores de validación de datos de entrada.
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         type: string
+ *                         description: Tipo de error.
+ *                       value:
+ *                         type: string
+ *                         description: Valor que causó el error.
+ *                       msg:
+ *                         type: string
+ *                         description: Mensaje de error específico.
+ *                       path:
+ *                         type: string
+ *                         description: Ruta del campo que causó el error.
+ *                       location:
+ *                         type: string
+ *                         description: Ubicación del error (por ejemplo, "body").
  *       '409':
  *         description: Ya existe un paquete con el mismo título.
  *         content:
@@ -299,7 +392,7 @@ export default routerPaquetes;
 
 /**
  * @swagger
- * /api/v1/paquetes/{id}:
+ * /api/v1/paquetes-turisticos/{id}:
  *   delete:
  *     summary: Eliminar un paquete turístico por ID
  *     tags: [Paquetes Turísticos]
@@ -333,6 +426,37 @@ export default routerPaquetes;
  *                 error:
  *                   type: string
  *                   description: No existe un paquete con ID {id}.
+ *       '400':
+ *         description: Error en la solicitud debido a datos incorrectos.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   description: Hubo un error al validar los campos.
+ *                 errors:
+ *                   type: array
+ *                   description: Listado de errores de validación de datos de entrada.
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       type:
+ *                         type: string
+ *                         description: Tipo de error.
+ *                       value:
+ *                         type: string
+ *                         description: Valor que causó el error.
+ *                       msg:
+ *                         type: string
+ *                         description: Mensaje de error específico.
+ *                       path:
+ *                         type: string
+ *                         description: Ruta del campo que causó el error.
+ *                       location:
+ *                         type: string
+ *                         description: Ubicación del error (por ejemplo, "params").
  *       '500':
  *         description: Error de servidor interno.
  *         content:

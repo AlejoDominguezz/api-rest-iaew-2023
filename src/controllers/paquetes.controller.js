@@ -8,6 +8,9 @@ export const GetPaquetes = async(req , res) => {
         .select("-__v")
         .lean()
         .exec()
+        if(paquetes.length == 0) {
+            return res.status(204).json()
+        }
 
         return res.json({paquetes})
     } catch (error) {

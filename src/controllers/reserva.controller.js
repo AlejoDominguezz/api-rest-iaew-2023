@@ -5,16 +5,17 @@ export const getReservas = async (req , res) => {
     try {
 
         const reservas = await Reserva.find()
-        if(!reservas) {
-            res.status(204).json()
+        .select("-__v")
+        .lean()
+        .exec()
+        if(reservas.length == 0) {
+            return res.status(204).json()
         }
         
-        res.status(200).json(reservas)
+        return res.status(200).json(reservas)
 
     } catch (err) {
-        return res.status(500).json({
-            error: 'Error del servidor'
-        });
+        return res.status(500).json({error: 'Error del servidor'});
     }
 }
 
@@ -38,9 +39,11 @@ export const postReservas = async(req , res) => {
 
         await reserva.save()
 
-        return res.status(201).json({ ok: true });
+        return res.status(201).json({ msg: "Paquete creado exitosamente", reserva });
 
     } catch (err) {
+        console.log(err)
         return res.status(500).json({ error: "Error de servidor" })
     }
 }
+

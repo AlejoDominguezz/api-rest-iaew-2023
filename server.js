@@ -25,7 +25,8 @@ class Server {
     }
 
     routes(){ 
-        this.app.use(this.paths.paquete , routerPaquetes, routerReservas);
+        this.app.use(this.paths.paquete , routerPaquetes);
+        this.app.use(this.paths.reserva , routerReservas);
     }
 
     async conectarDB(){
