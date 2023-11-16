@@ -1,4 +1,4 @@
-import { Paquete } from "../models/PaqueteTuristico";
+import { Paquete } from "../models/PaqueteTuristico.js";
 
 export const validarTitulo = async (titulo, id) => {
     let paquete = null;

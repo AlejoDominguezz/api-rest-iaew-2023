@@ -10,8 +10,8 @@ class Server {
         this.app = express();
         this.port = process.env.PORT || 3000;
         this.paths = { 
-            paquete:       '/api/v1/paquetes',
-            reserva:       '/api/v1/reservas',
+            paquete:       '/api/v1/paquetes-turisticos',
+            reserva:       '/api/v1/reservas-paquetes',
         }
 
         this.conectarDB();
