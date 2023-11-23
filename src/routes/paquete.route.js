@@ -61,6 +61,8 @@ export default routerPaquetes;
  *                       precio:
  *                         type: number
  *                         description: Precio del paquete turístico.
+ *       '204':
+ *         description: No existen paquetes turísticos registrados.
  *       '500':
  *         description: Error de servidor interno.
  *         content:

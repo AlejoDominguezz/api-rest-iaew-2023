@@ -42,7 +42,6 @@ export const postReservas = async(req , res) => {
         return res.status(201).json({ msg: "Paquete creado exitosamente", reserva });
 
     } catch (err) {
-        console.log(err)
         return res.status(500).json({ error: "Error de servidor" })
     }
 }
